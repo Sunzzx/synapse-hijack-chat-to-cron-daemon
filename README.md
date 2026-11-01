@@ -1,0 +1,96 @@
+# Synapse-Hijack-Chat-To-Cron-Daemon ⚡
+
+> **Autonomous Omni-Intent Extraction, Self-Healing Execution Loops, and Zero-Touch Chat-to-Cron Daemon for Hermes**
+
+[![CI](https://github.com/Sunzzx/synapse-hijack-chat-to-cron-daemon/actions/workflows/ci.yml/badge.svg)](https://github.com/Sunzzx/synapse-hijack-chat-to-cron-daemon)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
+
+---
+
+## 1. Architectural Foundations & Overview
+
+Modern AI agents often suffer from two catastrophic failure modes:
+1. **Passive Execution Latency:** Agents wait for granular user prompts, ignoring implicit intent in ongoing conversations.
+2. **Brittle Single-Shot Execution:** Failures are reported immediately upon the first error (e.g. rate limits, syntax errors, missing dependencies) without dynamic self-healing.
+
+`synapse-hijack-chat-to-cron-daemon` eliminates human intervention by transforming raw, unstructured user chat streams into deterministic, verified execution DAGs and recurring background schedules.
+
+```mermaid
+flowchart TD
+    A[Raw Chat Stream / Log Buffer] --> B[IntentExtractor Engine]
+    B -->|Task Extraction| C[Action DAG Compiler]
+    B -->|Schedule Patterns| D[CronBridge]
+    C --> E[SelfHealingEngine]
+    
+    subgraph Self-Healing 3-Strategy Verification Loop
+        E --> S1[Strategy 1: Direct Environment Exec]
+        S1 -->|Failure| S2[Strategy 2: Isolated Process Sandbox]
+        S2 -->|Failure| S3[Strategy 3: AST Patch & Resilient Fallback]
+    end
+    
+    S1 -->|Success| PASS[Verified State & Telemetry Log]
+    S2 -->|Success| PASS
+    S3 -->|Success| PASS
+    D --> F[Atomic Hermes jobs.json Syncer]
+```
+
+---
+
+## 2. Mathematical Formalization
+
+Let $\mathcal{C} = \{c_1, c_2, \dots, c_n\}$ be the ordered stream of incoming chat tokens.
+The intent extraction mapping $\Phi: \mathcal{C} \to \mathcal{I}$ projects natural language onto a tuple:
+
+$$\mathcal{I} = \langle k, \tau, \alpha, \sigma, \omega \rangle$$
+
+where:
+- $k \in \{\text{Task}, \text{Cron}, \text{Prune}, \text{Architect}, \text{Heal}\}$
+- $\tau \in \Sigma^*$ is the target entity or codebase
+- $\alpha \in \Sigma^*$ is the operational action verb
+- $\sigma \in \mathbb{R}^+$ is the interval period in minutes
+- $\omega \in [0, 1]$ represents extraction confidence
+
+The self-healing execution operator $\Psi$ guarantees resilience across strategy spaces $\mathcal{S}_1, \mathcal{S}_2, \mathcal{S}_3$:
+
+$$\Psi(x) = \bigvee_{i=1}^{3} \mathcal{S}_i\Big(\text{exec}(x) \cap \text{validate}(y)\Big)$$
+
+---
+
+## 3. Installation & Assimilation into Hermes
+
+### Local Development / Editable Install
+```bash
+cd ~/Developer/synapse-hijack-chat-to-cron-daemon
+pip install -e .
+```
+
+### CLI Usage
+```bash
+# 1. Parse raw text or transcript
+synapse-hijack parse --text "Please clean hermes stubs and run benchmark every 60m"
+
+# 2. Execute command with 3-tier self-healing verification
+synapse-hijack execute "pytest tests/"
+
+# 3. List active Hermes cron jobs
+synapse-hijack cron-list
+
+# 4. View system status
+synapse-hijack status
+```
+
+---
+
+## 4. Verification & Testing
+
+Run unit & integration tests:
+```bash
+pytest tests/ -v
+```
+
+---
+
+## License
+
+MIT © Sunzzx
