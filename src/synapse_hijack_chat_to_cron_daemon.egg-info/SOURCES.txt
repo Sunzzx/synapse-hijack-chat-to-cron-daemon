@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/synapse_hijack/__init__.py
+src/synapse_hijack/cli.py
+src/synapse_hijack/cron_bridge.py
+src/synapse_hijack/daemon.py
+src/synapse_hijack/intent_extractor.py
+src/synapse_hijack/self_healing_engine.py
+src/synapse_hijack_chat_to_cron_daemon.egg-info/PKG-INFO
+src/synapse_hijack_chat_to_cron_daemon.egg-info/SOURCES.txt
+src/synapse_hijack_chat_to_cron_daemon.egg-info/dependency_links.txt
+src/synapse_hijack_chat_to_cron_daemon.egg-info/entry_points.txt
+src/synapse_hijack_chat_to_cron_daemon.egg-info/top_level.txt
+tests/test_synapse.py

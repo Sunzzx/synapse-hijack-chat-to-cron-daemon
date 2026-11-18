@@ -1,0 +1,2 @@
+[console_scripts]
+synapse-hijack = synapse_hijack.cli:main

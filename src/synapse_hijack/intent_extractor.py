@@ -59,6 +59,7 @@ class IntentExtractor:
     ]
 
     TASK_TRIGGERS = [
+        (r"(?:turn\s+on|turn\s+off|wake|power)\s+(?:the\s+|my\s+)?(?:tv|television|noble\s+skiodo)", IntentKind.IMMEDIATE_TASK),
         (r"(?:clean|prune|remove|delete)\s+(?:hermes|deadcode|stubs|logs|cache)", IntentKind.SYSTEM_PRUNE),
         (r"(?:fix|debug|heal|repair|patch)\s+([a-zA-Z0-9_\-\.]+)", IntentKind.BUG_HEAL),
         (r"(?:create|build|make|architect|ship)\s+(?:a\s+)?(?:crazy\s+|novel\s+)?(?:repo|project|service)\s+(?:called\s+|named\s+)?([a-zA-Z0-9_\-\.]+)?", IntentKind.PROJECT_ARCHITECT),
